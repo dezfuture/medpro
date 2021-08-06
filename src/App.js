@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Components/Header";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+// import "fontsource-roboto";
+import { Paper, Container } from "@material-ui/core";
+
+import { green, orange } from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+  typography: {
+    h1: {
+      fontSize: "3rem",
+    },
+  },
+  palette: {
+    type: "dark",
+    primary: {
+      main: green[600],
+    },
+    secondary: {
+      main: orange[400],
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Paper style={{ height: "200vh" }}>
+        <Container>
+          <Header />
+        </Container>
+      </Paper>
+    </ThemeProvider>
   );
 }
 
